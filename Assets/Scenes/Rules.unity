@@ -181,11 +181,11 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 15
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 100
     m_Alignment: 0
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -197,7 +197,8 @@ MonoBehaviour:
     player.
 
 
-    Catching a BLUE Bubble will add 1 point to your total score.
+    Catching a BLUE Bubble will add 1 point to your total score. Blue Bubbles will
+    be destroyed on impact.
 
 
     Catching a RED Bubble will deduct 1 point from your total score.

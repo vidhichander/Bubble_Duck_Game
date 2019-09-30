@@ -82,6 +82,7 @@ public class BubbleHandler : MonoBehaviour
                 this.gameObject.transform.SetParent(other.gameObject.transform);
                 this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 Score.Singleton.AddScore(1);
+                Destroy(this.gameObject);
             }
         }
 
