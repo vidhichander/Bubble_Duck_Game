@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\BubbleSpawner.cs" />
     <Compile Include="Assets\Scripts\BubbleSpawnerInfo.cs" />
     <Compile Include="Assets\Scripts\DuckController.cs" />
+    <Compile Include="Assets\Scripts\EndlineHandler.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\ReplayController.cs" />

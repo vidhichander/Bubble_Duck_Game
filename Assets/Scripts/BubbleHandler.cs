@@ -12,16 +12,37 @@ public class BubbleHandler : MonoBehaviour
 
     #endregion
 
-    #region Private Variables
+    #region Variables
     private float elapsedTime;
     private Vector3 startingPosition;
     private bool stuck;
+    private List<GameObject> p_bluebubbles;
+    public List<GameObject> bluebubbles
+    {
+        get
+        {
+            return p_bluebubbles;
+        }
+    }
+    private List<GameObject> p_greenbubbles;
+    public List<GameObject> greenbubbles
+    {
+        get
+        {
+            return p_greenbubbles;
+        }
+    }
+    public int endlineCollisions;
+
     #endregion
 
     #region Initialization
     // Start is called before the first frame update
     void Start()
     {
+        endlineCollisions = 0;
+        p_bluebubbles = new List<GameObject>();
+        p_greenbubbles = new List<GameObject>();
         stuck = false;
         elapsedTime = 0;
         transform.position = new Vector3(Random.Range(-6f, 6f), -5f);
@@ -62,6 +83,8 @@ public class BubbleHandler : MonoBehaviour
                 stuck = true;
                 Destroy(this.gameObject);
                 Destroy(other.gameObject);
+                Score.Singleton.AddScore(1);
+
             }
             else if ((other.gameObject.tag == "Blue Bubble" || other.gameObject.tag == "Player" || other.gameObject.tag == "Red Bubble") && this.gameObject.transform.parent == null)
             {
@@ -81,8 +104,26 @@ public class BubbleHandler : MonoBehaviour
                 stuck = true;
                 this.gameObject.transform.SetParent(other.gameObject.transform);
                 this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                Score.Singleton.AddScore(1);
-                Destroy(this.gameObject);
+            }
+            if ((other.gameObject.tag == "Player"))
+            {
+                p_bluebubbles.Add(this.gameObject);
+            }
+            if (other.gameObject.tag == "Blue Bubble" && this.gameObject.transform.parent == other.gameObject.transform)
+            {
+                foreach (GameObject bubble in other.gameObject.GetComponent<BubbleHandler>().bluebubbles)
+                {
+                    p_bluebubbles.Add(bubble);
+                }
+                p_bluebubbles.Add(this.gameObject);
+                if(p_bluebubbles.Count >= 5)
+                {
+                    Score.Singleton.AddScore(5);
+                    foreach(GameObject bubble in p_bluebubbles)
+                    {
+                        Destroy(bubble);
+                    }
+                }
             }
         }
 
@@ -93,14 +134,36 @@ public class BubbleHandler : MonoBehaviour
                 stuck = true;
                 Destroy(this.gameObject);
                 Destroy(other.gameObject);
+                Score.Singleton.AddScore(1);
             }
             else if ((other.gameObject.tag == "Player" || other.gameObject.tag == "Green Bubble" || other.gameObject.tag == "Blue Bubble") && this.gameObject.transform.parent == null)
             {
                 stuck = true;
                 this.gameObject.transform.SetParent(other.gameObject.transform);
                 this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                Score.Singleton.AddScore(5);
             }
+            if ((other.gameObject.tag == "Player"))
+            {
+                p_greenbubbles.Add(this.gameObject);
+            }
+            if (other.gameObject.tag == "Green Bubble" && this.gameObject.transform.parent == other.gameObject.transform)
+            {
+                foreach (GameObject bubble in other.gameObject.GetComponent<BubbleHandler>().greenbubbles)
+                {
+                    p_greenbubbles.Add(bubble);
+                }
+                p_greenbubbles.Add(this.gameObject);
+                if (p_greenbubbles.Count >= 5)
+                {
+                    Score.Singleton.AddScore(20);
+                    foreach (GameObject bubble in p_greenbubbles)
+                    {
+                        Destroy(bubble);
+                    }
+                }
+            }
+
+
         }
         if (transform.position.y <= -2.5 && gameObject.transform.parent!=null)
         {

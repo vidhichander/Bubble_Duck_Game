@@ -1,14 +1,12 @@
 ﻿<Properties StartupConfiguration="{54E21137-A340-D029-DC3C-21EFBDB8E958}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BubbleHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EndlineHandler.cs">
     <Files>
-      <File FileName="Assets/Scripts/BubbleSpawnerInfo.cs" Line="16" Column="1" />
-      <File FileName="Assets/Scripts/DuckController.cs" Line="43" Column="20" />
-      <File FileName="Assets/Scripts/BubbleSpawner.cs" Line="29" Column="13" />
-      <File FileName="Assets/Scripts/RulesHandler.cs" Line="15" Column="1" />
       <File FileName="Assets/Scripts/ReplayController.cs" Line="3" Column="1" />
-      <File FileName="Assets/Scripts/MainMenuController.cs" Line="42" Column="6" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="12" Column="5" />
-      <File FileName="Assets/Scripts/BubbleHandler.cs" Line="12" Column="5" />
+      <File FileName="Assets/Scripts/MainMenuController.cs" Line="36" Column="44" />
+      <File FileName="Assets/Scripts/BubbleHandler.cs" Line="170" Column="4" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="26" Column="5" />
+      <File FileName="Assets/Scripts/Score.cs" Line="82" Column="26" />
+      <File FileName="Assets/Scripts/EndlineHandler.cs" Line="20" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
