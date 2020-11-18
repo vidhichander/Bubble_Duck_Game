@@ -5,3 +5,8 @@ Play the game using Unity and control the player using the left and right arrow 
 
 Unity Version Required = 2019.1.x above
 
+<p float="middle">
+  <img src="/Im1.png" width="400" />
+  <img src="/Im2.png" width="400" /> 
+  <img src="/Im3.png" width="400" />
+</p>
